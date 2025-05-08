@@ -1,32 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Your Name's Personal Website</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
 
-    <header>
-        <h1>Welcome to My Website!</h1>
-        <p>Hi, I'm [Your Name]. Here's a little bit about me.</p>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AverageMathsEnjoyer • Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+</head>
+
+<body class="dark-mode">
+
+    <header class="hero">
+        <div class="container" data-aos="fade-down">
+            <h1>Hello, I'm <span>a Maths Enjoyer</span></h1>
+            <p>A person who, if you couldn't tell, enjoys mathematics.</p>
+        </div>
+        <div class="car-container" id="car">
+            🚗
+        </div>
+
     </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am a [Your Profession]. I enjoy [Your Hobbies].</p>
+    <nav class="nav">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about" class="section" data-aos="fade-right">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I’m a kid who loves maths and sleeping and gaming and coding and also existing, to some extent.</p>
+        </div>
     </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: yourname@example.com</p>
+    <section id="skills" class="section" data-aos="fade-left">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul class="skills-grid">
+                <li>HTML & CSS</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>Maths</li>
+                <li>Gaming</li>
+                <li>More...</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects" class="section" data-aos="zoom-in">
+        <div class="container">
+            <h2>Projects</h2>
+            <p>I don't have any projects I'm currently working on, but stay tuned!</p>
+        </div>
+    </section>
+
+    <section id="contact" class="section" data-aos="fade-up">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Email me at <a href="mailto:yourname@example.com">yourname@example.com</a></p>
+            <div class="social-links">
+                <a href="#" target="_blank">LinkedIn</a>
+                <a href="#" target="_blank">GitHub</a>
+                <a href="#" target="_blank">Twitter</a>
+            </div>
+        </div>
     </section>
 
     <footer>
-        <p>© 2025 [Your Name]</p>
+        <div class="container">
+            <p>© 2025 AverageMathsEnjoyer. Made with ❤️</p>
+        </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+
+    <script>
+        const car = document.getElementById('car');
+        const header = document.querySelector('.hero');
+
+        window.addEventListener('scroll', () => {
+            const headerHeight = header.offsetHeight;
+            const scrollY = window.scrollY;
+
+            // Calculate scroll percentage within the header
+            const scrollProgress = Math.min(Math.max(scrollY / headerHeight, 0), 1);
+
+            // Translate X based on progress (0 = right edge, 1 = off left)
+            const moveDistance = -120 * scrollProgress; // in vw
+            car.style.transform = `translateX(${moveDistance}vw)`;
+        });
+    </script>
+
+
 </body>
+
 </html>
